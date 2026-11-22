@@ -18,9 +18,8 @@ bounded bill. v1 lives in `~/vision_site_project`; why v2 exists is in `docs/PLA
   building and deploying the app (architecture, Kubernetes, AWS, queue, auth), not tooling internals.
 - I have 5 years of experience as an engineer. Keep replies short and skip the basics. If I need
   clarification, I'll ask.
-- When explaining a new concept, include a short, concrete everyday analogy (simple enough for
-  a 12-year-old) where each piece of the analogy maps to a real piece of the system. Say what maps
-  to what.
+- No analogies. Answer at getting-started depth: the minimum needed to move forward; I'll
+  ask for more.
 - **Design before code.** Nothing gets built until its piece of the architecture is
   written down and decided in `docs/`.
 

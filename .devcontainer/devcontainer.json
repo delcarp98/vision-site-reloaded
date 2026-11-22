@@ -1,0 +1,38 @@
+{
+  "name": "vision-site-reloaded",
+  "build": { "dockerfile": "Dockerfile" },
+
+  // Share WSL's network: kind's API server on 127.0.0.1 is reachable inside and outside.
+  "runArgs": ["--network=host"],
+
+  // Same path as WSL: Claude sessions line up, and kind bind mounts resolve on the host.
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/jdelc/vision-site-reloaded,type=bind",
+  "workspaceFolder": "/home/jdelc/vision-site-reloaded",
+
+  "mounts": [
+    // Claude sessions, memory, settings and login shared with WSL (jdelc and vscode are both uid 1000).
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind",
+    // kubeconfig shared with WSL, so kubectl sees the same clusters in both places.
+    "source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind",
+    "source=vision-site-reloaded-uv-cache,target=/home/vscode/.cache/uv,type=volume"
+  ],
+  "containerEnv": { "CLAUDE_CONFIG_DIR": "/home/vscode/.claude" },
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" },
+    // docker CLI wired to WSL's Docker socket.
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    // kubectl + helm (helm installs packaged k8s apps, e.g. Postgres).
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": { "minikube": "none" }
+  },
+
+  "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.cache/uv && kind version && kubectl version --client && docker version --format '{{.Server.Version}}'",
+
+  "remoteUser": "vscode",
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff", "dbaeumer.vscode-eslint", "ms-kubernetes-tools.vscode-kubernetes-tools"]
+    }
+  }
+}
