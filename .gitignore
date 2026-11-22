@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+.pytest_cache/
+.ruff_cache/
+
+# Model weights and local outputs
+*.pt
+*.onnx
+*.engine
+artifacts/
+runs/
+
+# Frontend
+node_modules/
+*.local
+*.tsbuildinfo
+
+# Logs and local media
+logs/
+media/
+
+# Secrets
+.env
+*.pem
+kubeconfig*
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!example.tfvars
+
+# Personal experiments
+scratch/
