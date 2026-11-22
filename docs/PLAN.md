@@ -70,7 +70,7 @@ objects detected on them.
 |---|---|
 | Cloud | **AWS**. I want to learn it, even though cheaper providers exist |
 | Orchestration | **Kubernetes on EKS**. Develop on a local cluster for free |
-| Compute | **Graviton (ARM)** nodes, ~20% cheaper; spot instances for workers |
+| Compute | **x86_64 for now**; Graviton (ARM, ~20% cheaper) is an open question. Spot instances for workers |
 | Networking | **No NAT gateway** (saves ~$32/month). Public subnets + strict security groups |
 | Database | **Managed Postgres (RDS)**, separate from the servers |
 | Files | **S3**. Uploads and results **auto-delete after 30 days** |
@@ -80,7 +80,7 @@ objects detected on them.
 | Job progress | **SSE**, driven by events instead of polling |
 | Sign-in | **OAuth (Google/GitHub) and email/password**, both done properly (below) |
 | Frontend | A real **landing page and dashboard**, designed together. Not decided yet |
-| CI/CD | **GitHub Actions**: test, build ARM images, deploy on push |
+| CI/CD | **GitHub Actions**: test, build images, deploy on push |
 | Infrastructure | **Defined in code** (Terraform or `eksctl`): up in ~20 min, destroyed in ~10 |
 | Repo | **Private**, for now |
 | Live window | About **2 weeks** on AWS, then tear down |
@@ -111,7 +111,7 @@ Rough, to verify when building. AWS bills by the hour.
 | Piece | AWS, per month |
 |---|---|
 | EKS control plane | $73 |
-| 2 small Graviton nodes | ~$25–50 |
+| 2 small nodes (x86; Graviton would be ~20% less) | ~$25–50 |
 | RDS Postgres (smallest) | ~$15–25 |
 | Load balancer | ~$18–22 |
 | S3 + downloads | a few dollars |

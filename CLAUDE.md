@@ -31,8 +31,10 @@ bounded bill. v1 lives in `~/vision_site_project`; why v2 exists is in `docs/PLA
 - Learning notes: `docs/learning/` (01–05 carried over from v1). Add a note when we finish a topic.
 - Hardware: RTX 5060 Ti 16 GB, WSL2, Docker Engine (no Docker Desktop). Develop on a
   local Kubernetes cluster; AWS only for the ~2-week live window.
+- CPU architecture is **undecided**: default to x86_64 (amd64) images and nodes. Don't
+  assume ARM/Graviton until we decide otherwise.
 - Constraints: CPU-only inference, Apache-2.0/MIT models only (no Ultralytics/AGPL),
-  Graviton (ARM) images, no NAT gateway, servers are disposable (all state in RDS/S3).
+  no NAT gateway, servers are disposable (all state in RDS/S3).
 - Dependencies: uv (`uv add`, `uv sync`), never `uv pip install` for project deps.
 - Logging: every new feature logs its key events and failures, with job/user IDs.
 - Claude workflow is part of the experiment: when we try a skill or plugin, note in
