@@ -14,8 +14,6 @@ bounded bill. v1 lives in `~/vision_site_project`; why v2 exists is in `docs/PLA
 - Default to showing me the code to write (full file or exact snippet, with a short note on
   each non-obvious line) so I can type it myself. Only write files directly when I say
   "implement" or "do it".
-- Check my understanding with questions before moving on, but only on things that matter for
-  building and deploying the app (architecture, Kubernetes, AWS, queue, auth), not tooling internals.
 - I have 5 years of experience as an engineer. Keep replies short and skip the basics. If I need
   clarification, I'll ask.
 - No analogies. Answer at getting-started depth: the minimum needed to move forward; I'll
